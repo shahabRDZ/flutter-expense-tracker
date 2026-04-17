@@ -106,11 +106,7 @@ class _StatisticsBody extends StatelessWidget {
           color: cs.surfaceContainerLow,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(8, 16, 16, 8),
-            child: DailyBarChart(
-              expenses: dailyData,
-              year: year,
-              month: month,
-            ),
+            child: DailyBarChart(expenses: dailyData, year: year, month: month),
           ),
         ),
         const SizedBox(height: 24),
@@ -148,7 +144,9 @@ class _StatisticsBody extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       child: Row(
                         children: [
                           Container(
@@ -158,23 +156,29 @@ class _StatisticsBody extends StatelessWidget {
                               color: category.color.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Icon(category.icon,
-                                color: category.color, size: 20),
+                            child: Icon(
+                              category.icon,
+                              color: category.color,
+                              size: 20,
+                            ),
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(category.name,
-                                    style: theme.textTheme.titleSmall),
+                                Text(
+                                  category.name,
+                                  style: theme.textTheme.titleSmall,
+                                ),
                                 const SizedBox(height: 4),
                                 LinearProgressIndicator(
                                   value: percentage / 100,
-                                  backgroundColor:
-                                      cs.outlineVariant.withOpacity(0.3),
+                                  backgroundColor: cs.outlineVariant
+                                      .withOpacity(0.3),
                                   valueColor: AlwaysStoppedAnimation<Color>(
-                                      category.color),
+                                    category.color,
+                                  ),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                               ],
@@ -184,8 +188,10 @@ class _StatisticsBody extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text(Formatters.currency(amount),
-                                  style: theme.textTheme.titleSmall),
+                              Text(
+                                Formatters.currency(amount),
+                                style: theme.textTheme.titleSmall,
+                              ),
                               Text(
                                 '${percentage.toStringAsFixed(1)}%',
                                 style: theme.textTheme.bodySmall?.copyWith(
@@ -199,10 +205,11 @@ class _StatisticsBody extends StatelessWidget {
                     ),
                     if (!isLast)
                       Divider(
-                          height: 1,
-                          indent: 16,
-                          endIndent: 16,
-                          color: cs.outlineVariant.withOpacity(0.5)),
+                        height: 1,
+                        indent: 16,
+                        endIndent: 16,
+                        color: cs.outlineVariant.withOpacity(0.5),
+                      ),
                   ],
                 );
               }).toList(),
@@ -255,9 +262,7 @@ class _MonthNavigatorBar extends StatelessWidget {
       m = 12;
       y--;
     }
-    context
-        .read<ExpenseBloc>()
-        .add(FilterExpensesByMonth(year: y, month: m));
+    context.read<ExpenseBloc>().add(FilterExpensesByMonth(year: y, month: m));
   }
 }
 
@@ -291,13 +296,19 @@ class _StatTile extends StatelessWidget {
             children: [
               Icon(icon, color: color, size: 28),
               const SizedBox(height: 8),
-              Text(value,
-                  style: theme.textTheme.titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w700)),
+              Text(
+                value,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               const SizedBox(height: 2),
-              Text(label,
-                  style: theme.textTheme.bodySmall
-                      ?.copyWith(color: cs.onSurfaceVariant)),
+              Text(
+                label,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
+              ),
             ],
           ),
         ),

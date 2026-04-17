@@ -70,10 +70,7 @@ class DatabaseHelper {
   /// Return all expenses ordered by [date] descending (newest first).
   Future<List<Expense>> getAllExpenses() async {
     final db = await database;
-    final rows = await db.query(
-      _tableExpenses,
-      orderBy: 'date DESC',
-    );
+    final rows = await db.query(_tableExpenses, orderBy: 'date DESC');
     return rows.map(Expense.fromMap).toList();
   }
 
@@ -131,11 +128,7 @@ class DatabaseHelper {
   /// Delete an expense by [id].  Returns the number of rows deleted.
   Future<int> deleteExpense(String id) async {
     final db = await database;
-    return db.delete(
-      _tableExpenses,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return db.delete(_tableExpenses, where: 'id = ?', whereArgs: [id]);
   }
 
   /// Sum of all expense amounts (useful for budget checks).
@@ -153,7 +146,10 @@ class DatabaseHelper {
     int month,
   ) async {
     final from = DateTime(year, month);
-    final to = DateTime(year, month + 1).subtract(const Duration(microseconds: 1));
+    final to = DateTime(
+      year,
+      month + 1,
+    ).subtract(const Duration(microseconds: 1));
 
     final db = await database;
     final rows = await db.rawQuery(

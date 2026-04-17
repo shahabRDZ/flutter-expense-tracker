@@ -70,12 +70,13 @@ class HomeScreen extends StatelessWidget {
     final topCategoryId = state.categoryTotals.isEmpty
         ? null
         : (state.categoryTotals.entries.toList()
-              ..sort((a, b) => b.value.compareTo(a.value)))
-            .first
-            .key;
+                ..sort((a, b) => b.value.compareTo(a.value)))
+              .first
+              .key;
 
-    final topCategoryName =
-        topCategoryId != null ? Category.byId(topCategoryId).name : null;
+    final topCategoryName = topCategoryId != null
+        ? Category.byId(topCategoryId).name
+        : null;
 
     return CustomScrollView(
       slivers: [
@@ -162,12 +163,17 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.error_outline_rounded,
-                size: 64, color: theme.colorScheme.error),
+            Icon(
+              Icons.error_outline_rounded,
+              size: 64,
+              color: theme.colorScheme.error,
+            ),
             const SizedBox(height: 16),
-            Text(message,
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.bodyMedium,
+            ),
             const SizedBox(height: 16),
             FilledButton.tonal(
               onPressed: () =>
@@ -231,8 +237,8 @@ class _MonthNavigator extends StatelessWidget {
       newYear--;
     }
     context.read<ExpenseBloc>().add(
-          FilterExpensesByMonth(year: newYear, month: newMonth),
-        );
+      FilterExpensesByMonth(year: newYear, month: newMonth),
+    );
   }
 }
 
@@ -260,9 +266,9 @@ class _CategoryFilterRow extends StatelessWidget {
             return FilterChip(
               label: const Text('All'),
               selected: selectedCategoryId == null,
-              onSelected: (_) => context
-                  .read<ExpenseBloc>()
-                  .add(const FilterExpensesByCategory(null)),
+              onSelected: (_) => context.read<ExpenseBloc>().add(
+                const FilterExpensesByCategory(null),
+              ),
             );
           }
           final category = categories[index - 1];
@@ -270,9 +276,9 @@ class _CategoryFilterRow extends StatelessWidget {
             avatar: Icon(category.icon, size: 16, color: category.color),
             label: Text(category.name),
             selected: selectedCategoryId == category.id,
-            onSelected: (_) => context
-                .read<ExpenseBloc>()
-                .add(FilterExpensesByCategory(category.id)),
+            onSelected: (_) => context.read<ExpenseBloc>().add(
+              FilterExpensesByCategory(category.id),
+            ),
           );
         },
       ),

@@ -101,9 +101,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_isEditing ? 'Edit Expense' : 'Add Expense'),
-      ),
+      appBar: AppBar(title: Text(_isEditing ? 'Edit Expense' : 'Add Expense')),
       body: Form(
         key: _formKey,
         child: ListView(
@@ -118,8 +116,9 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                 prefixIcon: Icon(Icons.edit_rounded),
               ),
               textCapitalization: TextCapitalization.sentences,
-              validator: (v) =>
-                  (v == null || v.trim().isEmpty) ? 'Please enter a title' : null,
+              validator: (v) => (v == null || v.trim().isEmpty)
+                  ? 'Please enter a title'
+                  : null,
             ),
             const SizedBox(height: 16),
 
@@ -132,13 +131,15 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                 prefixText: '\$ ',
                 prefixIcon: Icon(Icons.attach_money_rounded),
               ),
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'[\d.,]')),
               ],
               validator: (v) {
-                if (v == null || v.trim().isEmpty) return 'Please enter an amount';
+                if (v == null || v.trim().isEmpty)
+                  return 'Please enter an amount';
                 final n = double.tryParse(v.replaceAll(',', ''));
                 if (n == null || n <= 0) return 'Please enter a valid amount';
                 return null;
@@ -207,23 +208,20 @@ class _SectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(bottom: 6),
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 6),
+    child: Text(
+      text,
+      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+        color: Theme.of(context).colorScheme.onSurfaceVariant,
+      ),
+    ),
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _CategoryPicker extends StatelessWidget {
-  const _CategoryPicker({
-    required this.selectedId,
-    required this.onChanged,
-  });
+  const _CategoryPicker({required this.selectedId, required this.onChanged});
 
   final String selectedId;
   final ValueChanged<String> onChanged;
@@ -242,8 +240,7 @@ class _CategoryPicker extends StatelessWidget {
           onTap: () => onChanged(cat.id),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 150),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
               color: isSelected
                   ? cat.color.withOpacity(0.18)
@@ -257,11 +254,13 @@ class _CategoryPicker extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(cat.icon,
-                    size: 18,
-                    color: isSelected
-                        ? cat.color
-                        : theme.colorScheme.onSurfaceVariant),
+                Icon(
+                  cat.icon,
+                  size: 18,
+                  color: isSelected
+                      ? cat.color
+                      : theme.colorScheme.onSurfaceVariant,
+                ),
                 const SizedBox(width: 6),
                 Text(
                   cat.name,
@@ -269,9 +268,7 @@ class _CategoryPicker extends StatelessWidget {
                     color: isSelected
                         ? cat.color
                         : theme.colorScheme.onSurfaceVariant,
-                    fontWeight: isSelected
-                        ? FontWeight.w700
-                        : FontWeight.w400,
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
                   ),
                 ),
               ],

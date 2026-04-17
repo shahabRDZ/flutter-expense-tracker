@@ -39,9 +39,7 @@ abstract class AppRoutes {
         return _buildRoute(
           settings,
           Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
+            body: Center(child: Text('No route defined for ${settings.name}')),
           ),
         );
     }
@@ -50,6 +48,5 @@ abstract class AppRoutes {
   static MaterialPageRoute<dynamic> _buildRoute(
     RouteSettings settings,
     Widget page,
-  ) =>
-      MaterialPageRoute(settings: settings, builder: (_) => page);
+  ) => MaterialPageRoute(settings: settings, builder: (_) => page);
 }

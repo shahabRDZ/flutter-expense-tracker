@@ -57,7 +57,10 @@ class SummaryCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: cs.onPrimary.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(20),
@@ -98,8 +101,11 @@ class SummaryCard extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                Icon(Icons.trending_up_rounded,
-                    color: cs.onPrimary.withOpacity(0.75), size: 16),
+                Icon(
+                  Icons.trending_up_rounded,
+                  color: cs.onPrimary.withOpacity(0.75),
+                  size: 16,
+                ),
                 const SizedBox(width: 6),
                 Text(
                   'Top category: $topCategory',

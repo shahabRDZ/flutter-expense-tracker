@@ -50,8 +50,10 @@ class _CategoryPieChartState extends State<CategoryPieChart> {
                     setState(() => _touchedIndex = null);
                     return;
                   }
-                  setState(() => _touchedIndex =
-                      response.touchedSection!.touchedSectionIndex);
+                  setState(
+                    () => _touchedIndex =
+                        response.touchedSection!.touchedSectionIndex,
+                  );
                 },
               ),
             ),
@@ -124,25 +126,27 @@ class _CategoryPieChartState extends State<CategoryPieChart> {
   }
 
   Widget _buildEmpty(ThemeData theme) => SizedBox(
-        height: 220,
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.pie_chart_outline_rounded,
-                  size: 64,
-                  color: theme.colorScheme.onSurfaceVariant.withOpacity(0.4)),
-              const SizedBox(height: 12),
-              Text(
-                'No data for this period',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ],
+    height: 220,
+    child: Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.pie_chart_outline_rounded,
+            size: 64,
+            color: theme.colorScheme.onSurfaceVariant.withOpacity(0.4),
           ),
-        ),
-      );
+          const SizedBox(height: 12),
+          Text(
+            'No data for this period',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -247,18 +251,23 @@ class DailyBarChart extends StatelessWidget {
               ),
             ),
             topTitles: const AxisTitles(
-                sideTitles: SideTitles(showTitles: false)),
+              sideTitles: SideTitles(showTitles: false),
+            ),
             rightTitles: const AxisTitles(
-                sideTitles: SideTitles(showTitles: false)),
+              sideTitles: SideTitles(showTitles: false),
+            ),
           ),
           barTouchData: BarTouchData(
             touchTooltipData: BarTouchTooltipData(
-              tooltipPadding:
-                  const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              tooltipPadding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 4,
+              ),
               getTooltipItem: (group, _, rod, __) => BarTooltipItem(
                 Formatters.currency(rod.toY),
-                theme.textTheme.labelSmall!
-                    .copyWith(color: cs.onInverseSurface),
+                theme.textTheme.labelSmall!.copyWith(
+                  color: cs.onInverseSurface,
+                ),
               ),
             ),
           ),

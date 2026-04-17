@@ -24,22 +24,22 @@ class Expense extends Equatable {
   // ── Serialisation ─────────────────────────────────────────────────────────
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'title': title,
-        'amount': amount,
-        'categoryId': categoryId,
-        'date': date.toIso8601String(),
-        'note': note,
-      };
+    'id': id,
+    'title': title,
+    'amount': amount,
+    'categoryId': categoryId,
+    'date': date.toIso8601String(),
+    'note': note,
+  };
 
   factory Expense.fromMap(Map<String, dynamic> map) => Expense(
-        id: map['id'] as String,
-        title: map['title'] as String,
-        amount: (map['amount'] as num).toDouble(),
-        categoryId: map['categoryId'] as String,
-        date: DateTime.parse(map['date'] as String),
-        note: map['note'] as String?,
-      );
+    id: map['id'] as String,
+    title: map['title'] as String,
+    amount: (map['amount'] as num).toDouble(),
+    categoryId: map['categoryId'] as String,
+    date: DateTime.parse(map['date'] as String),
+    note: map['note'] as String?,
+  );
 
   // ── Mutation helpers ──────────────────────────────────────────────────────
 
@@ -50,15 +50,14 @@ class Expense extends Equatable {
     String? categoryId,
     DateTime? date,
     String? note,
-  }) =>
-      Expense(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        amount: amount ?? this.amount,
-        categoryId: categoryId ?? this.categoryId,
-        date: date ?? this.date,
-        note: note ?? this.note,
-      );
+  }) => Expense(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    amount: amount ?? this.amount,
+    categoryId: categoryId ?? this.categoryId,
+    date: date ?? this.date,
+    note: note ?? this.note,
+  );
 
   // ── Equatable ─────────────────────────────────────────────────────────────
 

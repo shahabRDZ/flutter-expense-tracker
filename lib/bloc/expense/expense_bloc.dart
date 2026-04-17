@@ -41,8 +41,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     final filtered = all.where((e) {
       final matchesMonth =
           e.date.year == targetYear && e.date.month == targetMonth;
-      final matchesCategory =
-          categoryId == null || e.categoryId == categoryId;
+      final matchesCategory = categoryId == null || e.categoryId == categoryId;
       return matchesMonth && matchesCategory;
     }).toList();
 
@@ -79,16 +78,19 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     Emitter<ExpenseState> emit,
   ) async {
     final current = state;
-    final categoryId =
-        current is ExpenseLoaded ? current.selectedCategoryId : null;
+    final categoryId = current is ExpenseLoaded
+        ? current.selectedCategoryId
+        : null;
 
     emit(const ExpenseLoading());
     try {
-      emit(await _buildLoadedState(
-        categoryId: categoryId,
-        year: event.year,
-        month: event.month,
-      ));
+      emit(
+        await _buildLoadedState(
+          categoryId: categoryId,
+          year: event.year,
+          month: event.month,
+        ),
+      );
     } catch (e) {
       emit(ExpenseError('Failed to filter expenses: $e'));
     }
@@ -107,11 +109,13 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
 
     emit(const ExpenseLoading());
     try {
-      emit(await _buildLoadedState(
-        categoryId: event.categoryId,
-        year: year,
-        month: month,
-      ));
+      emit(
+        await _buildLoadedState(
+          categoryId: event.categoryId,
+          year: year,
+          month: month,
+        ),
+      );
     } catch (e) {
       emit(ExpenseError('Failed to filter expenses: $e'));
     }
@@ -126,13 +130,16 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId =
-          current is ExpenseLoaded ? current.selectedCategoryId : null;
-      emit(await _buildLoadedState(
-        categoryId: categoryId,
-        year: year,
-        month: month,
-      ));
+      final categoryId = current is ExpenseLoaded
+          ? current.selectedCategoryId
+          : null;
+      emit(
+        await _buildLoadedState(
+          categoryId: categoryId,
+          year: year,
+          month: month,
+        ),
+      );
     } catch (e) {
       emit(ExpenseError('Failed to add expense: $e'));
     }
@@ -147,13 +154,16 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId =
-          current is ExpenseLoaded ? current.selectedCategoryId : null;
-      emit(await _buildLoadedState(
-        categoryId: categoryId,
-        year: year,
-        month: month,
-      ));
+      final categoryId = current is ExpenseLoaded
+          ? current.selectedCategoryId
+          : null;
+      emit(
+        await _buildLoadedState(
+          categoryId: categoryId,
+          year: year,
+          month: month,
+        ),
+      );
     } catch (e) {
       emit(ExpenseError('Failed to update expense: $e'));
     }
@@ -168,13 +178,16 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId =
-          current is ExpenseLoaded ? current.selectedCategoryId : null;
-      emit(await _buildLoadedState(
-        categoryId: categoryId,
-        year: year,
-        month: month,
-      ));
+      final categoryId = current is ExpenseLoaded
+          ? current.selectedCategoryId
+          : null;
+      emit(
+        await _buildLoadedState(
+          categoryId: categoryId,
+          year: year,
+          month: month,
+        ),
+      );
     } catch (e) {
       emit(ExpenseError('Failed to delete expense: $e'));
     }
