@@ -151,3 +151,13 @@ See [`.github/workflows/flutter-ci.yml`](.github/workflows/flutter-ci.yml).
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## Join the Discussion
+
+Have ideas or experience to share? Check out our open discussions:
+
+- [Offline-first sync: CRDT vs event sourcing](https://github.com/shahabRDZ/flutter-expense-tracker/discussions/25)
+
+We'd love to hear your thoughts!
