@@ -114,40 +114,40 @@ class ExpenseCard extends StatelessWidget {
   }
 
   Widget _buildDismissBackground(ThemeData theme) => Container(
-    alignment: Alignment.centerRight,
-    padding: const EdgeInsets.symmetric(horizontal: 24),
-    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-    decoration: BoxDecoration(
-      color: theme.colorScheme.errorContainer,
-      borderRadius: BorderRadius.circular(16),
-    ),
-    child: Icon(
-      Icons.delete_rounded,
-      color: theme.colorScheme.onErrorContainer,
-    ),
-  );
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.errorContainer,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Icon(
+          Icons.delete_rounded,
+          color: theme.colorScheme.onErrorContainer,
+        ),
+      );
 
   Future<bool?> _confirmDelete(BuildContext context) => showDialog<bool>(
-    context: context,
-    builder: (ctx) => AlertDialog(
-      title: const Text('Delete expense?'),
-      content: Text(
-        'Are you sure you want to delete "${expense.title}"? '
-        'This action cannot be undone.',
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(ctx, false),
-          child: const Text('Cancel'),
-        ),
-        FilledButton(
-          onPressed: () => Navigator.pop(ctx, true),
-          style: FilledButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.error,
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Delete expense?'),
+          content: Text(
+            'Are you sure you want to delete "${expense.title}"? '
+            'This action cannot be undone.',
           ),
-          child: const Text('Delete'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              style: FilledButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.error,
+              ),
+              child: const Text('Delete'),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
+      );
 }

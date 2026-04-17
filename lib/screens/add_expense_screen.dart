@@ -208,14 +208,14 @@ class _SectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: 6),
-    child: Text(
-      text,
-      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-        color: Theme.of(context).colorScheme.onSurfaceVariant,
-      ),
-    ),
-  );
+        padding: const EdgeInsets.only(bottom: 6),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+        ),
+      );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

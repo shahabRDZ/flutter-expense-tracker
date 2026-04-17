@@ -78,9 +78,8 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     Emitter<ExpenseState> emit,
   ) async {
     final current = state;
-    final categoryId = current is ExpenseLoaded
-        ? current.selectedCategoryId
-        : null;
+    final categoryId =
+        current is ExpenseLoaded ? current.selectedCategoryId : null;
 
     emit(const ExpenseLoading());
     try {
@@ -130,9 +129,8 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId = current is ExpenseLoaded
-          ? current.selectedCategoryId
-          : null;
+      final categoryId =
+          current is ExpenseLoaded ? current.selectedCategoryId : null;
       emit(
         await _buildLoadedState(
           categoryId: categoryId,
@@ -154,9 +152,8 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId = current is ExpenseLoaded
-          ? current.selectedCategoryId
-          : null;
+      final categoryId =
+          current is ExpenseLoaded ? current.selectedCategoryId : null;
       emit(
         await _buildLoadedState(
           categoryId: categoryId,
@@ -178,9 +175,8 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       final current = state;
       final year = current is ExpenseLoaded ? current.selectedYear : null;
       final month = current is ExpenseLoaded ? current.selectedMonth : null;
-      final categoryId = current is ExpenseLoaded
-          ? current.selectedCategoryId
-          : null;
+      final categoryId =
+          current is ExpenseLoaded ? current.selectedCategoryId : null;
       emit(
         await _buildLoadedState(
           categoryId: categoryId,

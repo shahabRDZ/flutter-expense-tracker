@@ -17,18 +17,19 @@ class Category {
   // ── Serialisation ─────────────────────────────────────────────────────────
 
   Map<String, dynamic> toMap() => {
-    'id': id,
-    'name': name,
-    'iconCodePoint': icon.codePoint,
-    'colorValue': color.value,
-  };
+        'id': id,
+        'name': name,
+        'iconCodePoint': icon.codePoint,
+        'colorValue': color.value,
+      };
 
   factory Category.fromMap(Map<String, dynamic> map) => Category(
-    id: map['id'] as String,
-    name: map['name'] as String,
-    icon: IconData(map['iconCodePoint'] as int, fontFamily: 'MaterialIcons'),
-    color: Color(map['colorValue'] as int),
-  );
+        id: map['id'] as String,
+        name: map['name'] as String,
+        icon:
+            IconData(map['iconCodePoint'] as int, fontFamily: 'MaterialIcons'),
+        color: Color(map['colorValue'] as int),
+      );
 
   Category copyWith({String? id, String? name, IconData? icon, Color? color}) =>
       Category(

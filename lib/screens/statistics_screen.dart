@@ -49,9 +49,8 @@ class _StatisticsBody extends StatelessWidget {
     final year = state.selectedYear ?? DateTime.now().year;
     final month = state.selectedMonth ?? DateTime.now().month;
 
-    final dailyData = state.expenses
-        .map((e) => (amount: e.amount, date: e.date))
-        .toList();
+    final dailyData =
+        state.expenses.map((e) => (amount: e.amount, date: e.date)).toList();
 
     // Build category breakdown sorted by total descending.
     final breakdown = state.categoryTotals.entries.toList()
@@ -174,8 +173,8 @@ class _StatisticsBody extends StatelessWidget {
                                 const SizedBox(height: 4),
                                 LinearProgressIndicator(
                                   value: percentage / 100,
-                                  backgroundColor: cs.outlineVariant
-                                      .withOpacity(0.3),
+                                  backgroundColor:
+                                      cs.outlineVariant.withOpacity(0.3),
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     category.color,
                                   ),

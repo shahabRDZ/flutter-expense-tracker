@@ -48,5 +48,6 @@ abstract class AppRoutes {
   static MaterialPageRoute<dynamic> _buildRoute(
     RouteSettings settings,
     Widget page,
-  ) => MaterialPageRoute(settings: settings, builder: (_) => page);
+  ) =>
+      MaterialPageRoute(settings: settings, builder: (_) => page);
 }

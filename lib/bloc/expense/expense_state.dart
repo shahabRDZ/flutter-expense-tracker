@@ -48,14 +48,14 @@ class ExpenseLoaded extends ExpenseState {
 
   @override
   List<Object?> get props => [
-    expenses,
-    allExpenses,
-    selectedCategoryId,
-    selectedYear,
-    selectedMonth,
-    categoryTotals,
-    monthlyTotal,
-  ];
+        expenses,
+        allExpenses,
+        selectedCategoryId,
+        selectedYear,
+        selectedMonth,
+        categoryTotals,
+        monthlyTotal,
+      ];
 
   ExpenseLoaded copyWith({
     List<Expense>? expenses,
@@ -65,15 +65,16 @@ class ExpenseLoaded extends ExpenseState {
     int? selectedMonth,
     Map<String, double>? categoryTotals,
     double? monthlyTotal,
-  }) => ExpenseLoaded(
-    expenses: expenses ?? this.expenses,
-    allExpenses: allExpenses ?? this.allExpenses,
-    selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
-    selectedYear: selectedYear ?? this.selectedYear,
-    selectedMonth: selectedMonth ?? this.selectedMonth,
-    categoryTotals: categoryTotals ?? this.categoryTotals,
-    monthlyTotal: monthlyTotal ?? this.monthlyTotal,
-  );
+  }) =>
+      ExpenseLoaded(
+        expenses: expenses ?? this.expenses,
+        allExpenses: allExpenses ?? this.allExpenses,
+        selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
+        selectedYear: selectedYear ?? this.selectedYear,
+        selectedMonth: selectedMonth ?? this.selectedMonth,
+        categoryTotals: categoryTotals ?? this.categoryTotals,
+        monthlyTotal: monthlyTotal ?? this.monthlyTotal,
+      );
 }
 
 /// An error occurred during a database operation.

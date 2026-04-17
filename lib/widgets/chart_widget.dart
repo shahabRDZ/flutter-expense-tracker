@@ -126,27 +126,27 @@ class _CategoryPieChartState extends State<CategoryPieChart> {
   }
 
   Widget _buildEmpty(ThemeData theme) => SizedBox(
-    height: 220,
-    child: Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.pie_chart_outline_rounded,
-            size: 64,
-            color: theme.colorScheme.onSurfaceVariant.withOpacity(0.4),
+        height: 220,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.pie_chart_outline_rounded,
+                size: 64,
+                color: theme.colorScheme.onSurfaceVariant.withOpacity(0.4),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'No data for this period',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 12),
-          Text(
-            'No data for this period',
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
