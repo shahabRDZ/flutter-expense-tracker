@@ -133,7 +133,7 @@ class HomeScreen extends StatelessWidget {
           Icon(
             Icons.receipt_long_rounded,
             size: 80,
-            color: theme.colorScheme.onSurfaceVariant.withOpacity(0.3),
+            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.3),
           ),
           const SizedBox(height: 16),
           Text(
@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
           Text(
             'Tap + to add your first expense',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant.withOpacity(0.7),
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.7),
             ),
           ),
         ],
@@ -251,7 +251,7 @@ class _CategoryFilterRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categories = Category.defaults;
+    const categories = Category.defaults;
 
     return SizedBox(
       height: 44,

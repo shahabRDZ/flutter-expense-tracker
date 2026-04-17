@@ -134,7 +134,8 @@ class _CategoryPieChartState extends State<CategoryPieChart> {
               Icon(
                 Icons.pie_chart_outline_rounded,
                 size: 64,
-                color: theme.colorScheme.onSurfaceVariant.withOpacity(0.4),
+                color:
+                    theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
               ),
               const SizedBox(height: 12),
               Text(
@@ -212,7 +213,7 @@ class DailyBarChart extends StatelessWidget {
             show: true,
             drawVerticalLine: false,
             getDrawingHorizontalLine: (_) => FlLine(
-              color: cs.outlineVariant.withOpacity(0.5),
+              color: cs.outlineVariant.withValues(alpha: 0.5),
               strokeWidth: 1,
               dashArray: [4, 4],
             ),

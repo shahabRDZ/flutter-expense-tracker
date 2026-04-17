@@ -152,7 +152,7 @@ class _StatisticsBody extends StatelessWidget {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: category.color.withOpacity(0.15),
+                              color: category.color.withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Icon(
@@ -174,7 +174,7 @@ class _StatisticsBody extends StatelessWidget {
                                 LinearProgressIndicator(
                                   value: percentage / 100,
                                   backgroundColor:
-                                      cs.outlineVariant.withOpacity(0.3),
+                                      cs.outlineVariant.withValues(alpha: 0.3),
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     category.color,
                                   ),
@@ -207,7 +207,7 @@ class _StatisticsBody extends StatelessWidget {
                         height: 1,
                         indent: 16,
                         endIndent: 16,
-                        color: cs.outlineVariant.withOpacity(0.5),
+                        color: cs.outlineVariant.withValues(alpha: 0.5),
                       ),
                   ],
                 );

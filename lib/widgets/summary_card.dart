@@ -37,7 +37,7 @@ class SummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: cs.primary.withOpacity(0.30),
+            color: cs.primary.withValues(alpha: 0.30),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -53,7 +53,7 @@ class SummaryCard extends StatelessWidget {
               Text(
                 Formatters.monthYear(DateTime(year, month)),
                 style: theme.textTheme.titleMedium?.copyWith(
-                  color: cs.onPrimary.withOpacity(0.85),
+                  color: cs.onPrimary.withValues(alpha: 0.85),
                 ),
               ),
               Container(
@@ -62,7 +62,7 @@ class SummaryCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: cs.onPrimary.withOpacity(0.15),
+                  color: cs.onPrimary.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -91,26 +91,26 @@ class SummaryCard extends StatelessWidget {
           Text(
             'Total spent this month',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: cs.onPrimary.withOpacity(0.75),
+              color: cs.onPrimary.withValues(alpha: 0.75),
             ),
           ),
 
           if (topCategory != null) ...[
             const SizedBox(height: 12),
-            Divider(color: cs.onPrimary.withOpacity(0.20), height: 1),
+            Divider(color: cs.onPrimary.withValues(alpha: 0.20), height: 1),
             const SizedBox(height: 12),
             Row(
               children: [
                 Icon(
                   Icons.trending_up_rounded,
-                  color: cs.onPrimary.withOpacity(0.75),
+                  color: cs.onPrimary.withValues(alpha: 0.75),
                   size: 16,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   'Top category: $topCategory',
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: cs.onPrimary.withOpacity(0.85),
+                    color: cs.onPrimary.withValues(alpha: 0.85),
                   ),
                 ),
               ],

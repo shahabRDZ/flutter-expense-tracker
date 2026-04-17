@@ -20,7 +20,7 @@ class Category {
         'id': id,
         'name': name,
         'iconCodePoint': icon.codePoint,
-        'colorValue': color.value,
+        'colorValue': color.toARGB32(),
       };
 
   factory Category.fromMap(Map<String, dynamic> map) => Category(

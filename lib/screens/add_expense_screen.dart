@@ -98,8 +98,6 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
       appBar: AppBar(title: Text(_isEditing ? 'Edit Expense' : 'Add Expense')),
       body: Form(
@@ -108,7 +106,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
           children: [
             // Title
-            _SectionLabel('Title'),
+            const _SectionLabel('Title'),
             TextFormField(
               controller: _titleController,
               decoration: const InputDecoration(
@@ -123,7 +121,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             const SizedBox(height: 16),
 
             // Amount
-            _SectionLabel('Amount'),
+            const _SectionLabel('Amount'),
             TextFormField(
               controller: _amountController,
               decoration: const InputDecoration(
@@ -138,8 +136,9 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                 FilteringTextInputFormatter.allow(RegExp(r'[\d.,]')),
               ],
               validator: (v) {
-                if (v == null || v.trim().isEmpty)
+                if (v == null || v.trim().isEmpty) {
                   return 'Please enter an amount';
+                }
                 final n = double.tryParse(v.replaceAll(',', ''));
                 if (n == null || n <= 0) return 'Please enter a valid amount';
                 return null;
@@ -148,7 +147,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             const SizedBox(height: 16),
 
             // Category
-            _SectionLabel('Category'),
+            const _SectionLabel('Category'),
             _CategoryPicker(
               selectedId: _selectedCategoryId,
               onChanged: (id) => setState(() => _selectedCategoryId = id),
@@ -156,7 +155,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             const SizedBox(height: 16),
 
             // Date
-            _SectionLabel('Date'),
+            const _SectionLabel('Date'),
             InkWell(
               onTap: _pickDate,
               borderRadius: BorderRadius.circular(12),
@@ -170,7 +169,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             const SizedBox(height: 16),
 
             // Note (optional)
-            _SectionLabel('Note (optional)'),
+            const _SectionLabel('Note (optional)'),
             TextFormField(
               controller: _noteController,
               decoration: const InputDecoration(
@@ -229,7 +228,7 @@ class _CategoryPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final categories = Category.defaults;
+    const categories = Category.defaults;
 
     return Wrap(
       spacing: 8,
@@ -243,7 +242,7 @@ class _CategoryPicker extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
               color: isSelected
-                  ? cat.color.withOpacity(0.18)
+                  ? cat.color.withValues(alpha: 0.18)
                   : theme.colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(

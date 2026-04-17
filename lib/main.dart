@@ -28,7 +28,8 @@ class ExpenseTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => ExpenseBloc(DatabaseHelper.instance)..add(LoadExpenses()),
+      create: (_) =>
+          ExpenseBloc(DatabaseHelper.instance)..add(const LoadExpenses()),
       child: MaterialApp(
         title: 'Expense Tracker',
         debugShowCheckedModeBanner: false,
