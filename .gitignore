@@ -6,3 +6,24 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 *.lock
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+test_driver/
+
+# Generated
+*.g.dart
+*.freezed.dart
